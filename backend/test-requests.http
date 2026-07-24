@@ -1,0 +1,88 @@
+### CREATE five documents.
+POST http://localhost:3000/buckets HTTP/1.1
+content-type: application/json
+
+{
+    "bucketTitle": "Things to do before 50",
+    "bucketActivity": "Go skydiving",
+    "targetYear": 2024,
+    "deadlineDate": "2044-07-28"
+}
+
+
+### CREATE 2
+POST http://localhost:3000/buckets HTTP/1.1
+content-type: application/json
+
+{
+    "bucketTitle": "Retirement Goals",
+    "bucketActivity": "Save up enough to retire",
+    "targetYear": 2045,
+    "deadlineDate": "2044-07-28"
+}
+
+### CREATE 3
+POST http://localhost:3000/buckets HTTP/1.1
+content-type: application/json
+
+{
+    "bucketTitle": "Dream vacation",
+    "bucketActivity": "Visit Egypt",
+    "targetYear": 2030,
+    "deadlineDate": "2044-07-28"
+}
+
+### CREATE 4
+POST http://localhost:3000/buckets HTTP/1.1
+content-type: application/json
+
+{
+    "bucketTitle": "Childrens education",
+    "bucketActivity": "See my kids graduate college",
+    "targetYear": 2036,
+    "deadlineDate": "2044-07-28"
+}
+
+### CREATE 5
+POST http://localhost:3000/buckets HTTP/1.1
+content-type: application/json
+
+{
+    "bucketTitle": "Happy wife",
+    "bucketActivity": "Renew marriage vows",
+    "targetYear": 2034,
+    "deadlineDate": "2044-07-28"
+}
+
+
+### RETRIEVE all documents.
+GET http://localhost:3000/buckets HTTP/1.1
+
+
+
+### RETRIEVE a document by its ID.
+### Replace the following ID with one that exists in the collection.
+GET http://localhost:3000/buckets/665418e00a2585f35ee219b1 HTTP/1.1
+
+
+### UPDATE one document's targetYear, by ID.
+### Replace the ID in the following request with one that exists
+### and update the targetYear:
+PUT http://localhost:3000/buckets/66541401a22eabd8f4c31d65 HTTP/1.1
+content-type: application/json
+
+{
+    "bucketTitle": "Things to do before 50",
+    "bucketActivity": "Go skydiving",
+    "targetYear": 2033,
+    "deadlineDate": "English"
+}
+
+### DELETE by ID (responds with nothing if successful):
+DELETE http://localhost:3000/buckets/66541401a22eabd8f4c31d65 HTTP/1.1
+
+
+
+### RETRIEVE all documents (responds with 4 or the original 5):
+GET http://localhost:3000/buckets HTTP/1.1
+
