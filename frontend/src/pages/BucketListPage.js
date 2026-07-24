@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'; // Import useState and useEf
 import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
 
 import BucketList from '../components/BucketList'; // Correctly import BucketList component
-
+const API_URL = process.env.REACT_APP_API_URL || '';
 
 
 
@@ -15,7 +15,7 @@ function BucketListPage({ setBucket }) {
 
     // RETRIEVE the entire list of buckets
     const loadBuckets = async () => {
-        const response = await fetch('/buckets');
+        const response = await fetch(`${API_URL}/buckets`);
         const buckets = await response.json();
         setBuckets(buckets);
     }
@@ -28,9 +28,11 @@ function BucketListPage({ setBucket }) {
 
     // DELETE a single bucket
     const onDeleteBucket = async _id => {
-        const response = await fetch(`/buckets/${_id}`, { method: 'DELETE' });
+        const response = await fetch(`${API_URL}/buckets/${_id}`, {
+            method: 'DELETE'
+        });
         if (response.status === 200) {
-            const getResponse = await fetch('/buckets');
+            const getResponse = await fetch(`${API_URL}/buckets`);
             const buckets = await getResponse.json();
             setBuckets(buckets);
         } else {
@@ -49,11 +51,11 @@ function BucketListPage({ setBucket }) {
             <h2>List of Bucket List Items</h2>
             <article>
             <p>Click on plus, edit or delete icons to update your bucket list.</p>
-            
-            <BucketList 
-                buckets={buckets} 
-                onEdit={onEditBucket} 
-                onDelete={onDeleteBucket} 
+
+            <BucketList
+                buckets={buckets}
+                onEdit={onEditBucket}
+                onDelete={onDeleteBucket}
             />
             </article>
         </>
