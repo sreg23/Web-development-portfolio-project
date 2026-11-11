@@ -141,15 +141,21 @@ export const EditBucketPageForm = ({ bucketToEdit }) => {
                             <p className="error">{errors.deadlineDate}</p>
                         )}
 
-                        <label htmlFor="submit">
-                            <button
-                                type="submit"
-                                id="submit"
-                            >
-                                Save
-                            </button>{" "}
-                            updates to the collection
-                        </label>
+<div className="form-actions">
+    <button
+        type="submit"
+        id="submit"
+    >
+        Save
+    </button>
+
+    <button
+        type="button"
+        onClick={() => navigate("/buckets")}
+    >
+        Cancel
+    </button>
+</div>
                     </fieldset>
                 </form>
             </article>

@@ -28,15 +28,29 @@ function BucketListPage({ setBucket }) {
 
     // DELETE a single bucket
     const onDeleteBucket = async _id => {
+
+        const confirmed = window.confirm(
+            "Are you sure you want to delete this bucket list item?"
+        );
+
+        if (!confirmed) {
+            return;
+        }
+
         const response = await fetch(`${API_URL}/buckets/${_id}`, {
             method: 'DELETE'
         });
+
         if (response.status === 200) {
             const getResponse = await fetch(`${API_URL}/buckets`);
-            const buckets = await getResponse.json();
-            setBuckets(buckets);
+            const bucket = await getResponse.json();
+            setBuckets(bucket);
+
+            window.alert("Bucket list item was deleted successfully.");
         } else {
-            console.error(`Failed to delete bucket list item = ${_id}, status code = ${response.status}`)
+            console.error(
+                `Failed to delete bucket list item = ${_id}, status code = ${response.status}`
+            );
         }
     }
 
@@ -48,10 +62,11 @@ function BucketListPage({ setBucket }) {
     // DISPLAY the buckets
     return (
         <>
-            <h2>List of Bucket List Items</h2>
+            <h2>Bucket List Items</h2>
             <article>
-            <p>Click on plus, edit or delete icons to update your bucket list.</p>
-
+            <p className="bucket-description">
+                Manage your bucket list by adding, editing, or removing items.
+            </p>
             <BucketList
                 buckets={buckets}
                 onEdit={onEditBucket}

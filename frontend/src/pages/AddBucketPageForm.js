@@ -28,11 +28,10 @@ export const AddBucketPageForm = () => {
 
         if (response.status === 201) {
             alert('Bucket list item was added successfully.');
+
         } else {
             alert(`Failed to add bucket list item. Status: ${response.status}`);
         }
-
-        navigate("/buckets");
     };
 
     return (
@@ -80,15 +79,21 @@ export const AddBucketPageForm = () => {
                             id="deadlineDate"
                         />
 
-                        <label htmlFor="submit">
+                        <div className="form-actions">
                             <button
                                 type="submit"
                                 id="submit"
                             >
                                 Add
-                            </button>{" "}
-                            to the collection
-                        </label>
+                            </button>
+
+                            <button
+                                type="button"
+                                onClick={() => navigate("/buckets")}
+                            >
+                                Cancel
+                            </button>
+                        </div>
                     </fieldset>
                 </form>
             </article>
