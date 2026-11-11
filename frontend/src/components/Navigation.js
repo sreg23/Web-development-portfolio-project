@@ -1,18 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 // Change the function names and links
 // to fit your portfolio topic.
 
 function Navigation() {
   return (
-    <nav>
+    <nav className="main-nav">
         {/* Add links to Home, Topics, Gallery, Contact, and Staff Pages  */}
-        <Link to="/">Home</Link>
-        <Link to="/topics">Topics</Link>  
-        <Link to="/buckets">Bucket List</Link>
-        <Link to="../gallery">Gallery</Link>
-        <Link to="/order">Order</Link> {/* New Order link */}
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/topics">Topics</NavLink>
+        <NavLink to="/buckets">Bucket List</NavLink>
+        <NavLink to="/gallery">Gallery</NavLink>
+        <NavLink to="/order">Order</NavLink> {/* New Order link */}
     </nav>
   );
 }

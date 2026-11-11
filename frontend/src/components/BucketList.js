@@ -1,27 +1,37 @@
+import { Link } from 'react-router-dom';
+import { MdAddCircle } from 'react-icons/md';
 
-//import React from 'react';
-
-
-import Bucket from './Bucket'; // Correctly import the Bucket component
+import Bucket from './Bucket';
 import TableHead from './TableHead';
 
 function BucketList({ buckets, onEdit, onDelete }) {
     return (
-        <div>
-            <table id="buckets">
-                <caption>Add and Edit Bucket List Items </caption>
-               <TableHead />
-                <tbody>
-                    {buckets.map((bucket, i) => (
-                        <Bucket 
-                            bucket={bucket} 
-                            key={i}
-                            onDelete={onDelete}
-                            onEdit={onEdit} 
-                        />
-                    ))}
-                </tbody>
-            </table>
+        <div className="bucket-list-container">
+            <div className="bucket-toolbar">
+                <h3>Bucket List Manager</h3>
+
+                <Link className="add-bucket-button" to="/create">
+                    <MdAddCircle />
+                    <span>Add Item</span>
+                </Link>
+            </div>
+
+            <div className="table-wrapper">
+                <table id="buckets">
+                    <TableHead />
+
+                    <tbody>
+                        {buckets.map((bucket) => (
+                            <Bucket
+                                bucket={bucket}
+                                key={bucket._id}
+                                onDelete={onDelete}
+                                onEdit={onEdit}
+                            />
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 }

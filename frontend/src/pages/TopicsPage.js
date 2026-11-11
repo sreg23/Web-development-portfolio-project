@@ -1,17 +1,18 @@
+import React from "react";
 
 function TopicsPage() {
-    function scrollToSection(e, id) {
-        e.preventDefault();
+
+
+
+    function scrollToSection(event, id) {
+        event.preventDefault();
 
         const section = document.getElementById(id);
 
         if (section) {
-            const y =
-                section.getBoundingClientRect().top + window.pageYOffset;
-
-            window.scrollTo({
-                top: y,
-                behavior: "smooth"
+            section.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
             });
         }
     }
@@ -19,7 +20,7 @@ function TopicsPage() {
         <>
 
 <h2>Web Development Concepts</h2>
-<nav class="local">
+<nav className="local">
     <a
         href="#webServers"
         onClick={(e) => scrollToSection(e, "webServers")}
@@ -247,8 +248,8 @@ function TopicsPage() {
 
             <article id="javaScript">
                 <h3>All about JavaScript</h3>
-            </article>
-            <p>
+
+                <p>
                 Values in JavaScript are represented as one of the following <strong>Data Types:</strong> <strong>Numbers</strong>, <strong>Boolean values</strong>, <strong>Strings</strong>, <strong>Symbols</strong>,
                 <strong>Special values</strong> or <strong>Objects</strong>. Numbers are represented in JavaScript as double-precision floating-point numbers. It's considered best practice
                 to know which data type you should be using and not rely on JavaScript to perform automatic conversions of strings to numbers, for example. Built-in functions like <strong>parseFloat/parseInt</strong> should be used for
@@ -256,15 +257,15 @@ function TopicsPage() {
                 containing expressions are called <strong>Template literals</strong>, which are enclosed in <strong>backticks</strong>. Symbols can be used to assign unique identifiers to JavaScript objects. The JavaScript Special values are <strong>undefined</strong> and
                 <strong>null</strong>. Uninitialized variables, incorrect number of arguments used while calling functions, and functions that don't return anything all result in undefined being used to replace those values. Null is used to indicate that a variable points
                 to no object. Another special value is <strong>NaN</strong>, which will be returned when an expected number value doesn't actually evaluate to a number.
-            </p>
-            <p>
+                </p>
+                <p>
                 JavaScript <strong>Objects</strong> are non-primitive value types consisting of name-value pairs. The names are also referred to as properties of the object. The properties of objects can be created, read, updated, or deleted <strong>(CRUD)</strong> by developers.
                 Dot notation is used to add or update properties using the (.) operator. The dot operator is also used to read properties. Properties can also be deleted using the <strong>delete</strong> operator. <strong>Arrays</strong> are JavaScript objects whose properties
                 are strings. Array elements are accessed using 0-based integer index in square brackets or by the string-based property name. Array values can be any JavaScript type. <strong>JSON</strong> stands for JavaScript Object Notation, and is used to exchange
                 data across different platforms, applications, and programming languages in human-readable text. JSON strings can be created from JavaScript objects and vice versa.
 
-            </p>
-            <p>
+                </p>
+                <p>
                 <strong>Conditionals</strong> in JavaScript are used to control flow of execution and for iteration. Using conditionals in JavaScript, developers can control which block of code gets executed based
                 on whether or not a condition they have written evaluates to true or false for that block. JavaScript uses <strong>if/else</strong> and <strong>switch statements</strong> to control flow of execution.
                 If/else statements control execution of code blocks by conditional statements that evaluate to true or false. Switch statements will evaluate a value in a expression and then compare it to different case clauses to
@@ -272,18 +273,19 @@ function TopicsPage() {
                 code a specified number of times. <strong>While loops</strong> are similar to for loops but will always execute a block of code while a condition is true. This can lead to infinite loops if the while loop isn't setup correctly. <strong>Do while loops</strong>
                 are similar to while loops, except that they will always execute a block of code once and then evaluate the conditional statement. <strong>For in loops</strong> are used to iterate over object properties in no particular order. <strong>For of loops</strong>
                 iterate over iterable objects like arrays.
-            </p>
-            <p>
+                </p>
+                <p>
                 <strong>Object-oriented programming (OOP)</strong> is supported by JavaScript and allows developers to create objects
                 that encapsulate data and behavior. OOP uses <strong>objects, classes, inheritance, encapsulation, and polymorphism</strong>. Classes are used
                 as a blueprint to create objects that have similar properties and methods. Inheritance is used by objects to inherit methods and properties from other objects. JavaScript achieves this through
                 <strong>prototyping</strong>. Prototyping is used to create many objects which share common properties and is important for code reuse.
-            </p>
-            <p>
+                </p>
+                <p>
                 JavaScript supports <strong>Functional programming</strong>, which means <strong>first class</strong> values are functions that can be assigned to variables, passed as arguments and returned from other functions.
                 Some key concepts in functional programming are <strong>immutability</strong> and <strong>higher order functions</strong>. Immutability is the ability to prevent an object or data structure from being changed once it is created. In functional programming,
                 higher order functions are used to return functions as results or take other functions as arguments.
-            </p>
+                </p>
+            </article>
 
 
         <footer>
